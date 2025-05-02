@@ -1,17 +1,50 @@
-// 1. Equality Operator (==)
+// Comparison operators
 
-// Illustration of (==) operator
-let x = 5;
-let y = '5';
+// console.log(40 > 30);
 
-// Checking of operands
-console.log(x == 5);
-console.log(y == 5);        
-console.log(x == y);
+// console.log(40 < 30);
 
-console.log();
+// console.log(20 <= 30);
 
-// Check against special values
-console.log(NaN == NaN);
-console.log(0 == false);   
-console.log(0 == null);
+// console.log(20 == 30);
+
+// Strings
+
+// console.log('apple' > 'ball');
+
+// console.log('glowing' > 'glow');
+
+// console.log('2' > 1);
+
+// console.log('2' == 2); // check value 
+
+/* Strict eqality */
+
+// console.log('2' === 2); // check value with type
+
+// console.log(null == undefined);
+
+// console.log(null === undefined);
+
+// console.log(null > 0); //null becomes 0
+
+// console.log(null < 1); //null becomes 0
+
+// console.log(null >= 0); //null becomes 0
+
+// console.log(null == 0); //null becomes null
+
+
+// Practice 
+
+console.log(3 <= 5); // true
+
+console.log('2' > '3'); // false
+
+console.log('mango' >= 'banana'); // true
+
+console.log(undefined == null); // true
+
+console.log(null === undefined); // false
+
+console.log(null < 1); // true
