@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <p>hi</p>
+    <ul style="list-style-type: disc;">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+    </ul>
+
+    <style>
+        li::marker {
+            color: red;
+            /* Changes only the bullet color */
+        }
+
+        li {
+            color: black;
+            /* Text color remains unchanged */
+        }
+    </style>
+    <!-- BLOCK -->
+    <div style="background: lightblue; margin: 10px;">
+        Block Element (takes full width)
+    </div>
+
+    <!-- INLINE -->
+    <span style="background: lightcoral; margin: 10px;">
+        Inline Element (flows with text)
+    </span>
+    <span>Another inline element</span>
     <script src="./index.js"></script>
 </body>
+
 </html>
