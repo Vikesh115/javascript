@@ -8,35 +8,31 @@
 </head>
 
 <body>
-    <p>hi</p>
-    <ul style="list-style-type: disc;">
+    <ul id="myList">
         <li>Apple</li>
         <li>Banana</li>
         <li>Orange</li>
+        <li>Grapes</li>
     </ul>
 
-    <style>
-        li::marker {
-            color: red;
-            /* Changes only the bullet color */
+    <script>
+        // Get the unordered list element
+        const list = document.getElementById('myList');
+
+        // Get all list items
+        const listItems = list.getElementsByTagName('li');
+
+        // Create an array to store the list item content
+        const itemContentArray = [];
+
+        // Loop through each list item and store its content in the array
+        for (let i = 0; i < listItems.length; i++) {
+            itemContentArray.push(listItems[i].textContent);
         }
 
-        li {
-            color: black;
-            /* Text color remains unchanged */
-        }
-    </style>
-    <!-- BLOCK -->
-    <div style="background: lightblue; margin: 10px;">
-        Block Element (takes full width)
-    </div>
-
-    <!-- INLINE -->
-    <span style="background: lightcoral; margin: 10px;">
-        Inline Element (flows with text)
-    </span>
-    <span>Another inline element</span>
-    <script src="./index.js"></script>
+        // Now the itemContentArray contains all the list item content
+        console.log(itemContentArray); // Output: ["Apple", "Banana", "Orange", "Grapes"]
+    </script>
 </body>
 
 </html>
