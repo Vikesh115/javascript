@@ -2,11 +2,12 @@
 // Unpack the array
 // Avoid mutating means does not change original array
 
-let arr = [1, 2, 3, 4];
-console.log(...arr); // 1 2 3 4
+// let arr = [1, 2, 3, 4];
+// console.log(...arr); // 1 2 3 4
 
 let arr1 = [4, 5, 6];
 let arr2 = [8, 9, 10];
+let arr3 = [1,2,3, ...arr1, 7, ...arr2, 11];
 
-console.log(...arr1, ...arr2);
+console.log(arr3);
 console.log(arr1);
