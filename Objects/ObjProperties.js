@@ -13,6 +13,6 @@ console.log(typeof obj);
 
 console.log(obj.name);
 console.log(obj.age);
-
+console.log(obj["age"]);
 console.log(obj["courses"]);
 console.log(obj["is admin"]);
