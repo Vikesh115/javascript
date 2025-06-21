@@ -1,5 +1,10 @@
 import { apiKey } from './config.js';
 const parentElement = document.querySelector(".main");
+const searchInput = document.querySelector(".input");
+
+let searchValue = "";
+let filteredArrOfMovies = [];
+
 
 const options = {
     method: 'GET',
@@ -57,7 +62,7 @@ const createMovieCard = (movies) => {
         imageEle.setAttribute("src", `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`);
         imageEle.setAttribute("alt", movie.title);
         imageContainer.appendChild(imageEle);
-        
+
         cardContainer.appendChild(imageContainer);
 
         // creating card details container
@@ -76,4 +81,36 @@ const createMovieCard = (movies) => {
         parentElement.appendChild(cardContainer);
     }
 };
+
+function getFilteredData() {
+    filteredArrOfMovies = searchValue?.length > 0
+        ? movies.filter((movie) =>
+            searchValue === movie.title.toLowerCase())
+        : movies;
+    return filteredArrOfMovies;
+}
+
+function handleSearch(event) {
+    searchValue = event.target.value.toLowerCase();
+    console.log(searchValue);
+    let filterBySearch = getFilteredData();
+    parentElement.innerHTML = "";
+    createMovieCard(filterBySearch);
+}
+
+function debounce(callback, delay) {
+    let timerId;
+
+    return (...args) => {
+        clearTimeout(timerId);
+        timerId = setTimeout(() => {
+            callback(...args);
+        }, delay);
+    };
+}
+
+const debounceInput = debounce(handleSearch, 500);
+
+searchInput.addEventListener("keyup", debounceInput);
+
 createMovieCard(movies);
