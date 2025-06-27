@@ -1,5 +1,9 @@
 /**
  * promise.allSettled(arrOfPromise)
+ * Takes an array of promises.
+ * Waits for all promises to settle (resolve or reject).
+ * Always resolves with an array of objects showing 
+ * each promise's status (fulfilled or rejected) and value/reason.
 */
 
 let promise1 = new Promise((resolve)=>{

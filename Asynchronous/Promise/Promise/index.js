@@ -1,3 +1,18 @@
+/**
+ * Promise()
+ * A Promise is an object representing the eventual completion (or failure) 
+ * of an asynchronous operation and its resulting value. 
+ * It allows you to handle asynchronous operations more elegantly than callbacks, 
+ * avoiding "callback hell."
+
+ * Key States of a Promise
+ * A Promise can be in one of three states:
+ * pending – Initial state (neither fulfilled nor rejected).
+ * fulfilled – The operation completed successfully.
+ * rejected – The operation failed.
+
+ */
+
 
 const URL = "https://jsonplaceholder.typicode.com/users";
 

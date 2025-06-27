@@ -1,23 +1,18 @@
 /**
  * promise.any(arrOfPromise)
+ * Takes an array of promises.
+ * Resolves as soon as the first promise resolves (ignores rejections).
+ * Rejects only if all promises reject (with an AggregateError).
 */
 
-let promise1 = new Promise((resolve)=>{
-    setTimeout(() => { resolve("Promise 1 resolved")}, 1000);
-})
+const p1 = Promise.reject("Error 1");
+const p2 = new Promise((res) => setTimeout(res, 100, "Success"));
+const p3 = Promise.reject("Error 2");
 
-let promise2 = new Promise((_, reject)=>{
-    setTimeout(() => { reject("Promise 2 rejected")}, 2000);
-})
+Promise.any([p1, p2, p3])
+  .then((result) => console.log(result)) // "Success" (first resolved)
+  .catch((err) => console.error(err));   // Doesn't run
 
-let promise3 = new Promise((resolve)=>{
-    setTimeout(() => { resolve("Promise 3 resolved")}, 3000);
-})
-
-let arrOfPromise = [promise1, promise2, promise3];
-
-let promise = Promise.any(arrOfPromise);
-
-promise
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err.message))
+Promise.any([p1, p3])
+  .then((result) => console.log(result)) // Doesn't run
+  .catch((err) => console.error(err));   // AggregateError: All promises were rejected

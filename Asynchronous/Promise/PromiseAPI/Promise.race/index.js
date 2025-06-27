@@ -1,25 +1,17 @@
 /**
  * promise.race(arrOfPromise)
+ * Takes an array of promises.
+ * Settles (resolves/rejects) as soon as the first 
+ * promise settles (whichever finishes first, success or failure).
 */
 
-let promise1 = new Promise((resolve)=>{
-    setTimeout(() => { resolve("Promise 1 resolved")}, 2000);
-})
+const fast = new Promise((res) => setTimeout(res, 100, "Fast"));
+const slow = new Promise((res) => setTimeout(res, 500, "Slow"));
+const error = new Promise((_, rej) => setTimeout(rej, 200, "Error!"));
 
-let promise2 = new Promise((_, reject)=>{
-    setTimeout(() => { reject("Promise 2 rejected")}, 3000);
-})
+Promise.race([fast, slow])
+  .then((result) => console.log(result)); // "Fast" (resolves first)
 
-let promise3 = new Promise((resolve)=>{
-    setTimeout(() => { resolve("Promise 3 resolved")}, 1000);
-})
-
-let arrOfPromise = [promise1, promise2, promise3];
-
-let promise = Promise.race(arrOfPromise);
-
-console.log(promise);
-
-promise
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err.message))
+Promise.race([slow, error])
+  .then((result) => console.log(result))  // Doesn't run
+  .catch((err) => console.error(err));    // "Error!" (rejects first) 

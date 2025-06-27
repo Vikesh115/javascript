@@ -1,31 +1,33 @@
+/**
+ * Method chaining allows you to execute multiple asynchronous operations 
+ * sequentially in a clean, readable way. Each .then() returns a new Promise, 
+ * enabling further chaining.
+*/
 
-function bookHotel() {
-    return new Promise((resolve) => {
-        resolve("hotel123");
-    });
+// Using real API endpoints from JSONPlaceholder
+function getUser(id) {
+    return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+        .then((res) => {
+            if (!res.ok) throw new Error('User not found');
+            return res.json();
+        });
 }
 
-function payment() {
-    return new Promise((resolve) => {
-        resolve("Payment successful");
-    });
+function getPosts(userId) {
+    return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        .then((res) => {
+            if (!res.ok) throw new Error('Posts not found');
+            return res.json();
+        });
 }
 
-const hotelName = "Grand Plaza";
-
-let hotel = bookHotel(hotelName);
-
-hotel
-.then((hotelId) => {
-    console.log(hotelId);
-    return hotelId;
-})
-.then((hotelId) => {
-    return payment(hotelId);
-})
-.then((response) => {
-    console.log(response);
-})
-.catch((err) => {
-    console.log(err);
-});
+// Usage
+getUser(1)
+    .then((user) => {
+        console.log('User:', user.name);
+        return getPosts(user.id);
+    })
+    .then((posts) => {
+        console.log('First post title:', posts[0]?.title);
+    })
+    .catch((err) => console.error('Error:', err.message));
