@@ -1,36 +1,38 @@
-// console.log("Log Hello");
+console.log("Log Hello");
 
 // ************************* Variables *************************
 
-// var message;
+var message;
 
-// message = "var Hii";
-// var message = "reassign var Hii"
+message = "var Hii";
+var message = "reassign var Hii"
 
 // // Varible used to console one variable multiple times without manually write console
-// console.log(message);
-// console.log(message);
-// console.log(message);
-// console.log(message);
+console.log(message);
+console.log(message);
+console.log(message);
+console.log(message);
 
 
-// let book;
+let book;
 
-// book = "Good life"
-// book = "Good vibes"
+console.log(book);
 
-// console.log(book);
-// console.log(book);
-// console.log(book);
-// console.log(book);
+book = "Good life"
+book = "Good vibes"
+
+console.log(book);
+console.log(book);
+console.log(book);
+console.log(book);
 
 // // const author; //initialize with initializer value const variable give syntaxError
-// const editionyear = 2020; // should assign value while declare const variable
+const editionyear = 2020; // should assign value while declare const variable
 
 // // editionyear = 2022 <-- can't chnage value to const variable give TypeError
 
-// console.log(editionyear);
-// console.log(editionyear);
+console.log(editionyear);
+console.log(editionyear);
 
 
 //*************************/ Variables Naming conventions *************************

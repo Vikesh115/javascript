@@ -14,7 +14,8 @@ const obj = {
 
 const { name, address, courses } = obj;
 console.log(name); // Output: Prakash
-console.log(address); // Output: { street: '123 Main St', city: 'Mumbai', state: 'Maharashtra' }
+console.log(address); 
+// Output: { street: '123 Main St', city: 'Mumbai', state: 'Maharashtra' }
 console.log(courses); // Output: ['JavaScript', 'React', 'Node.js']
 
 const { address: { city, state } } = obj;

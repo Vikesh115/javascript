@@ -7,7 +7,7 @@ const readlinesync = require("readline-sync");
 let userName = readlinesync.question("May i know your name? ");
 let userAge = readlinesync.question("May i know your age? ")
 
-let bornYear = 2025 + Number(userAge)
+let bornYear = 2025 - Number(userAge)
 
 console.log(`Hi ${userName},Welcome to my family.`);
 console.log(`You are ${userAge} years old. `);

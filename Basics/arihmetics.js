@@ -1,10 +1,13 @@
-// let a = 12;
-// let b = 4;
+let a = 12;
+let b = 4;
 
 // let a = "12";
-// let b = "4";
+// let b = 4;
 
 // let a = 12;
+// let b = "4";
+
+// let a = "12";
 // let b = "4";
 
 // let a = "apple";

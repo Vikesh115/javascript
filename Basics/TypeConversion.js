@@ -7,6 +7,9 @@
 
 let a = "12"
 let b = "10"
+let n = 12;
+
+let m = String(n);
 
 let c = Number(a)
 let d = Number(b)
@@ -18,5 +21,9 @@ console.log(typeof a);
 console.log(typeof b);
 console.log(typeof c);
 console.log(typeof d);
+console.log(typeof m);
+console.log(m);
+console.log(c);
+console.log(d);
 console.log( e ); // String contains value so give true
 console.log( f ); // String does not contain value so give false
